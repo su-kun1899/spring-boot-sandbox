@@ -10,6 +10,6 @@ import javax.persistence.Converter
  */
 @Converter(autoApply = true)
 class LocalDateConverter : AttributeConverter<LocalDate, Date> {
-    override fun convertToDatabaseColumn(localDate: LocalDate?): Date? = localDate?.let { Date.valueOf(localDate) }
-    override fun convertToEntityAttribute(date: Date?): LocalDate? = date?.toLocalDate()
+    override fun convertToDatabaseColumn(date: LocalDate?): Date? = date?.let { Date.valueOf(date) }
+    override fun convertToEntityAttribute(value: Date?): LocalDate? = value?.toLocalDate()
 }
