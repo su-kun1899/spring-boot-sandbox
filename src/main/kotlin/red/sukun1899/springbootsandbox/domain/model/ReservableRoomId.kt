@@ -1,5 +1,6 @@
 package red.sukun1899.springbootsandbox.domain.model
 
+import java.io.Serializable
 import java.time.LocalDate
 
 /**
@@ -7,5 +8,5 @@ import java.time.LocalDate
  */
 data class ReservableRoomId(
         var roomId:Int = 0,
-        var reserveDate: LocalDate = LocalDate.MIN
-)
+        var reservedDate: LocalDate = LocalDate.MIN
+): Serializable
