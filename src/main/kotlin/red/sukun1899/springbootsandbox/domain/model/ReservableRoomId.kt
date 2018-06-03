@@ -8,5 +8,5 @@ import java.time.LocalDate
  */
 data class ReservableRoomId(
         var roomId:Int = 0,
-        var reserveDate: LocalDate = LocalDate.MIN
+        var reservedDate: LocalDate = LocalDate.MIN
 ): Serializable
