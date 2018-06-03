@@ -11,6 +11,6 @@ data class ReservableRoom(
         var reservableRoomId: ReservableRoomId = ReservableRoomId(),
         @ManyToOne
         @JoinColumn(name = "room_id", insertable = false, updatable = false)
-        @MapsId
+        @MapsId("roomId")
         var meetingRoom: MeetingRoom = MeetingRoom()
 )

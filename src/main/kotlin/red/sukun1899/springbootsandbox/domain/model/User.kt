@@ -1,5 +1,6 @@
 package red.sukun1899.springbootsandbox.domain.model
 
+import java.io.Serializable
 import javax.persistence.*
 
 /**
@@ -15,4 +16,4 @@ data class User(
         var lastName: String = "",
         @Enumerated(EnumType.STRING)
         var roleName: RoleName = RoleName.USER
-)
+) : Serializable
