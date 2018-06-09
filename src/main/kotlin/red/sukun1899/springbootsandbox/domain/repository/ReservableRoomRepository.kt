@@ -11,5 +11,5 @@ import java.time.LocalDate
  */
 @Repository
 interface ReservableRoomRepository : JpaRepository<ReservableRoom, ReservableRoomId> {
-    fun findByReservableRoomeId_reservedDateOrderByReservableRoomId_roomIdAsc(reservedDate: LocalDate): List<ReservableRoom>
+    fun findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(reservedDate: LocalDate): List<ReservableRoom>
 }
