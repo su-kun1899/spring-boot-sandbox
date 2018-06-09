@@ -12,7 +12,8 @@
 
 <ul>
     <li th:each="room: ${rooms}">
-        <a th:href="@{'/reservations' + ${date} + '/' + ${room.meetingRoom.roomId}}">会議室１</a>
+        <a th:href="@{'/reservations/' + ${date} + '/' + ${room.meetingRoom.roomId}}"
+           th:text="${room.meetingRoom.roomName}">会議室１</a>
     </li>
 </ul>
 </body>
