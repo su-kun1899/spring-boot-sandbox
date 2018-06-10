@@ -92,6 +92,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- For testing -->
+        <dependency>
+            <groupId>com.ninja-squad</groupId>
+            <artifactId>DbSetup</artifactId>
+            <version>2.1.0</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- TODO for develop: プロファイル分けたい -->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -183,6 +191,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
