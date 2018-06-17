@@ -12,7 +12,6 @@ import java.time.LocalDate
 @Service
 @Transactional
 class RoomService(private val reservableRoomRepository: ReservableRoomRepository) {
-
     fun findReservableRooms(date: LocalDate): List<ReservableRoom> =
             reservableRoomRepository.findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(date)
 }
