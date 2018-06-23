@@ -28,24 +28,34 @@ class RoomsControllerSpec extends Specification {
     RoomService roomService
 
     def "会議室の一覧を表示する"() {
+        given:
+        def date = LocalDate.now()
+        def stubRooms = [new ReservableRoom(
+                new ReservableRoomId(1, date),
+                new MeetingRoom(1, '汐留'),
+        )]
+
         when:
         // Nowとかテストで使いたくないんだよなぁ。。
-        def date = LocalDate.now()
         BDDMockito.given(this.roomService.findReservableRooms(date)).willReturn(
-                [new ReservableRoom(
-                        new ReservableRoomId(1, date),
-                        new MeetingRoom(1, '汐留'),
-                )]
+                stubRooms
         )
 
         then:
         this.mvc.perform(MockMvcRequestBuilders.get("/rooms"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.model().attribute("rooms", stubRooms))
     }
 
     def "指定した日付の会議室の一覧を表示する"() {
-        when:
+        given:
         def date = LocalDate.of(2018, Month.JUNE, 23)
+        def stubRooms = [new ReservableRoom(
+                new ReservableRoomId(1, date),
+                new MeetingRoom(1, '汐留'),
+        )]
+
+        when:
         BDDMockito.given(this.roomService.findReservableRooms(date)).willReturn(
                 [new ReservableRoom(
                         new ReservableRoomId(1, date),
@@ -56,5 +66,6 @@ class RoomsControllerSpec extends Specification {
         then:
         this.mvc.perform(MockMvcRequestBuilders.get("/rooms/2018-06-23"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.model().attribute("rooms", stubRooms))
     }
 }
