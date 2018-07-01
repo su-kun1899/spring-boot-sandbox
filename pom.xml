@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <kotlin.version>1.2.41</kotlin.version>
+        <kotlin.version>1.2.50</kotlin.version>
         <spock.version>1.1-groovy-2.4</spock.version>
     </properties>
 
@@ -89,6 +89,14 @@
             <groupId>org.spockframework</groupId>
             <artifactId>spock-spring</artifactId>
             <version>${spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- For testing -->
+        <dependency>
+            <groupId>com.ninja-squad</groupId>
+            <artifactId>DbSetup</artifactId>
+            <version>2.1.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -183,6 +191,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
